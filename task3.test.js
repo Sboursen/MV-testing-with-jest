@@ -137,16 +137,16 @@ describe('divide', function () {
 
     const result = calc.divide(x, y);
 
-    expect(result).toEqual(4);
+    expect(result).toEqual(1);
   });
 
   it('works with negative numbers', function () {
-    const x = 3;
+    const x = 4;
     const y = -2;
 
     const result = calc.divide(x, y);
 
-    expect(result).toEqual(-6);
+    expect(result).toEqual(-2);
   });
 
   it('throws error if one of the two arguments is not defined', function () {

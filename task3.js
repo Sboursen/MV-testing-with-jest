@@ -1,6 +1,5 @@
 class Calculator {
   add(x, y) {
-    console.log(arguments);
     Object.keys(arguments).forEach((arg) => {
       if (arguments[arg] === undefined) {
         throw new Error(`ARG ${arg} IS UNDEFINED`);
@@ -17,7 +16,6 @@ class Calculator {
   }
 
   subtract(x, y) {
-    console.log(arguments);
     Object.keys(arguments).forEach((arg) => {
       if (arguments[arg] === undefined) {
         throw new Error(`ARG ${arg} IS UNDEFINED`);
@@ -34,7 +32,6 @@ class Calculator {
   }
 
   multiply(x, y) {
-    console.log(arguments);
     Object.keys(arguments).forEach((arg) => {
       if (arguments[arg] === undefined) {
         throw new Error(`ARG ${arg} IS UNDEFINED`);
@@ -48,6 +45,26 @@ class Calculator {
     });
 
     return x * y;
+  }
+
+  divide(x, y) {
+    Object.keys(arguments).forEach((arg) => {
+      if (arguments[arg] === undefined) {
+        throw new Error(`ARG ${arg} IS UNDEFINED`);
+      }
+    });
+
+    Object.keys(arguments).forEach((arg) => {
+      if (isNaN(arguments[arg])) {
+        throw new Error(`ARG ${arg} IS NAN`);
+      }
+    });
+
+    if (arguments[1] === 0) {
+      throw new Error(`DENOMINATOR IS ZERO`);
+    }
+
+    return x / y;
   }
 }
 
