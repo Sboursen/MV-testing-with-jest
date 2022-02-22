@@ -125,3 +125,54 @@ describe('multiply', function () {
     );
   });
 });
+
+describe('divide', function () {
+  beforeEach(() => {
+    calc = new Calculator();
+  });
+
+  it('divides two numbers', function () {
+    const x = 2;
+    const y = 2;
+
+    const result = calc.divide(x, y);
+
+    expect(result).toEqual(4);
+  });
+
+  it('works with negative numbers', function () {
+    const x = 3;
+    const y = -2;
+
+    const result = calc.divide(x, y);
+
+    expect(result).toEqual(-6);
+  });
+
+  it('throws error if one of the two arguments is not defined', function () {
+    const x = 1;
+    let y;
+
+    expect(() => calc.divide(x, y)).toThrowError(
+      'ARG 1 IS UNDEFINED',
+    );
+  });
+
+  it('throws error if one of the two arguments is NAN', function () {
+    const y = 4;
+    let x = 'NAN';
+
+    expect(() => calc.divide(x, y)).toThrowError(
+      'ARG 0 IS NAN',
+    );
+  });
+
+  it('throws error if the denominator is zero', function () {
+    const x = 4;
+    const y = 0;
+
+    expect(() => calc.divide(x, y)).toThrowError(
+      'DENOMINATOR IS ZERO',
+    );
+  });
+});
