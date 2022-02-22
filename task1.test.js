@@ -16,4 +16,12 @@ describe('stringLength', function () {
       'STRING LENGTH ERROR',
     );
   });
+
+  it('throws an error if the length of the string is more than 10', function () {
+    const largeString = 'This is a large string';
+
+    expect(() => stringLength(largeString)).toThrowError(
+      'STRING LENGTH ERROR',
+    );
+  });
 });
