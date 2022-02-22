@@ -41,3 +41,46 @@ describe('add', function () {
     );
   });
 });
+
+
+describe('subtract', function () {
+  beforeEach(() => {
+    calc = new Calculator();
+  });
+
+  it('subtract two numbers', function () {
+    const x = 1;
+    const y = 2;
+
+    const result = calc.subtract(x, y);
+
+    expect(result).toEqual(-1);
+  });
+
+  it('works with negative numbers', function () {
+    const x = 2;
+    const y = -2;
+
+    const result = calc.subtract(x, y);
+
+    expect(result).toEqual(4);
+  });
+
+  it('throws error if one of the two arguments is not defined', function () {
+    const x = 1;
+    let y;
+
+    expect(() => calc.subtract(x, y)).toThrowError(
+      'ARG 1 IS UNDEFINED',
+    );
+  });
+
+  it('throws error if onr of the two arguments is NAN', function () {
+    const x = 1;
+    let y = 'NAN';
+
+    expect(() => calc.subtract(x, y)).toThrowError(
+      'ARG 1 IS NAN',
+    );
+  });
+});
