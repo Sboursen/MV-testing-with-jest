@@ -1,5 +1,5 @@
 function stringLength(string) {
-  return;
+  return string.length;
 }
 
 module.exports = stringLength;
